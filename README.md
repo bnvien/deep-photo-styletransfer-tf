@@ -37,13 +37,26 @@ python deep_photostyle.py --content_image_path <path_to_content_image> --style_i
 python deep_photostyle.py --content_image_path ./examples/input/input.jpg --style_image_path ./examples/style/case6.jpg --content_seg_path ./examples/segmentation/input_mask.jpg --style_seg_path ./examples/segmentation/case6_mask.jpg --style_option 0 --max_iter 2000 --apply_smooth False --init_image_path ./examples/input/input.jpg --style_weight 1e3
 ```
 
-There are three use cases for this application: transfering a plain color, a pattern (with edges) and a blend of plain color and small-size pattern. The following images demonstrates the idea.
+There are three use cases for this application: transfering a plain color, a pattern (with edges) and a blend of plain color and small-size pattern. Each of them requires a different set of options. The following images demonstrates the idea.
 
 <p align="center">
     <img src="./examples/style/case1.jpg" height="190"/>
     <img src="./examples/style/case2.jpg" height="190"/>
     <img src="./examples/style/case5.jpg" height="190"/>
 </p>
+
+* Plain color: affine loss on, local affine smoothing on. Example:
+```
+python deep_photostyle.py --content_image_path ./examples/input/input.jpg --style_image_path ./examples/style/case1.jpg --content_seg_path ./examples/segmentation/input_mask.jpg --style_seg_path ./examples/segmentation/case1_mask.jpg --style_option 2 --max_iter 1000 --apply_smooth True --init_image_path ./examples/input/input.jpg
+```
+* Pattern: affine loss off to transfer edges, local affine smoothing off to keep those edges. Example:
+```
+python deep_photostyle.py --content_image_path ./examples/input/input.jpg --style_image_path ./examples/style/case5.jpg --content_seg_path ./examples/segmentation/input_mask.jpg --style_seg_path ./examples/segmentation/case5_mask.jpg --style_option 0 --max_iter 2000 --apply_smooth False --init_image_path ./examples/input/input.jpg --style_weight 1e3
+```
+* Plain color + small-size pattern: affine loss can be turned on or off depends on what we want in the result, local affine smoothing off to keep the pattern. Example:
+```
+python deep_photostyle.py --content_image_path ./examples/input/input.jpg --style_image_path ./examples/style/case2.jpg --content_seg_path ./examples/segmentation/input_mask.jpg --style_seg_path ./examples/segmentation/case2_mask.jpg --style_option 0 --max_iter 2000 --apply_smooth False --init_image_path ./examples/input/input.jpg
+```
 
 Because of the spillover effect on the non-working area of the output image, `replace_nonworking_area.py` is used (see the Jupyter Notebook for reference) to replace the non-working area of the output image with the non-working area of the input image.
 
