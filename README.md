@@ -15,24 +15,24 @@ This project aims to apply [Deep Photo Styletransfer](https://arxiv.org/abs/1703
 * [Numpy](www.numpy.org/)
 * [Pillow](https://pypi.python.org/pypi/Pillow/)
 * [Scipy](https://www.scipy.org/)
-* [PyCUDA](https://pypi.python.org/pypi/pycuda) (used in smooth local affine, tested on CUDA 8.0)
+* [PyCUDA](https://pypi.python.org/pypi/pycuda) (used in smooth local affine)
 
-***It is recommended to use [Anaconda Python](https://www.continuum.io/anaconda-overview), since you only need to install Tensorflow and PyCUDA manually to setup. The CUDA is optional but really recommended***
+***It is recommended to run the code on Google Colab, since you only need to install PyCUDA manually to setup. Check the provided Jupyter Notebook for a demo.***
 
 ### Download the VGG-19 model weights
-The VGG-19 model of tensorflow is adopted from [VGG Tensorflow](https://github.com/machrisaa/tensorflow-vgg) with few modifications on the class interface. The VGG-19 model weights is stored as .npy file and could be download from [Google Drive](https://drive.google.com/file/d/0BxvKyd83BJjYY01PYi1XQjB5R0E/view?usp=sharing) or [BaiduYun Pan](https://pan.baidu.com/s/1o9weflK). After downloading, copy the weight file to the **./project/vgg19** directory
+The VGG-19 model of tensorflow is adopted from [VGG Tensorflow](https://github.com/machrisaa/tensorflow-vgg) with few modifications on the class interface. The VGG-19 model weights is stored as .npy file and could be download from [Google Drive](https://drive.google.com/file/d/0BxvKyd83BJjYY01PYi1XQjB5R0E/view?usp=sharing) or [BaiduYun Pan](https://pan.baidu.com/s/1o9weflK). After downloading, copy the weight file to the **./vgg19** directory
 
 ## Usage
 ### Basic Usage
 You need to specify the path of content image, style image, content image segmentation, style image segmentation and then run the command
 
 ```
-python deep_photostyle.py --content_image_path <path_to_content_image> --style_image_path <path_to_style_image> --content_seg_path <path_to_content_segmentation> --style_seg_path <path_to_style_segmentation> --style_option 2
+python deep_photostyle.py --content_image_path <path_to_content_image> --style_image_path <path_to_style_image> --content_seg_path <path_to_content_segmentation> --style_seg_path <path_to_style_segmentation> --style_option 0
 ```
 
 *Example:*
 ```
-python deep_photostyle.py --content_image_path ./examples/input/in11.png --style_image_path ./examples/style/tar11.png --content_seg_path ./examples/segmentation/in11.png --style_seg_path ./examples/segmentation/tar11.png --style_option 2
+python deep_photostyle.py --content_image_path ./examples/input/input.jpg --style_image_path ./examples/style/case6.jpg --content_seg_path ./examples/segmentation/input_mask.jpg --style_seg_path ./examples/segmentation/case6_mask.jpg --style_option 0 --max_iter 2000 --apply_smooth False --init_image_path ./examples/input/input.jpg --style_weight 1e3
 ```
 
 ### Other Options
@@ -50,13 +50,12 @@ This repository doesn't offer image segmentation script and simply use the segme
 
 
 ## Examples
-Here are more results from tensorflow algorithm (from left to right are input, style, torch results and tensorflow results)
+Here are more results (from left to right are input, style, and result)
 
 <p align="center">
-    <img src='examples/input/in6.png' height='140' width='210'/>
-    <img src='examples/style/tar6.png' height='140' width='210'/>
-    <img src='examples/final_results/best6_t_1000.png' height='140' width='210'/>
-    <img src='some_results/best6.png' height='140' width='210'/>
+    <img src='examples/input/input.jpg' height='162' width='300'/>
+    <img src='examples/style/case1.jpg' height='162' width='270'/>
+    <img src='some_results/Case1.png' height='162' width='300'/>
 </p>
 
 <p align="center">
@@ -96,24 +95,9 @@ Here are more results from tensorflow algorithm (from left to right are input, s
 
 ## Acknowledgement
 
-* This work was done when Yang Liu was a research intern at *Alibaba-Zhejiang University Joint Research Institute of Frontier Technologies*, under the supervision of [Prof. Mingli Song](http://person.zju.edu.cn/en/msong) and [Yongcheng Jing](http://yongchengjing.com/).
+* This work was done by Vien Bui, Jacob John Jeevan and Viren Viraj Shankar at *University of Alabama at Birmingam*.
 
-* Our tensorflow implementation basically follows the [torch code](https://github.com/luanfujun/deep-photo-styletransfer).
-
-* We use [martinbenson](https://github.com/martinbenson)'s [python code](https://github.com/martinbenson/deep-photo-styletransfer/blob/master/deep_photo.py) to compute Matting Laplacian.
-
-## Citation
-If you find this code useful for your research, please cite:
-```
-@misc{YangPhotoStyle2017,
-  author = {Yang Liu},
-  title = {deep-photo-style-transfer-tf},
-  publisher = {GitHub},
-  organization={Alibaba-Zhejiang University Joint Research Institute of Frontier Technologies},
-  year = {2017},
-  howpublished = {\url{https://github.com/LouieYang/deep-photo-styletransfer-tf}}
-}
-```
+* This repository is basically based on the [Tensorflow implementation](https://github.com/LouieYang/deep-photo-styletransfer-tf) of Deep Photo Styletransfer by Yang Liu.
 
 ## Contact
-Feel free to contact me if there is any question (Yang Liu lyng_95@zju.edu.cn).
+Feel free to contact me if there is any question (Vien Bui bnvien@gmail.com).
