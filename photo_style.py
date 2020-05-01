@@ -31,7 +31,8 @@ def bgr2rgb(bgr, vgg_mean=False):
         return bgr[:, :, ::-1]
 
 def load_seg(content_seg_path, style_seg_path, content_shape, style_shape):
-    color_codes = ['BLUE', 'GREEN', 'BLACK', 'WHITE', 'RED', 'YELLOW', 'GREY', 'LIGHT_BLUE', 'PURPLE']
+    # color_codes = ['BLUE', 'GREEN', 'BLACK', 'WHITE', 'RED', 'YELLOW', 'GREY', 'LIGHT_BLUE', 'PURPLE']
+    color_codes = ['WHITE'] # only support White area (working area) in this app
     def _extract_mask(seg, color_str):
         h, w, c = np.shape(seg)
         if color_str == "BLUE":
