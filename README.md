@@ -3,7 +3,7 @@
 This project aims to apply [Deep Photo Styletransfer](https://arxiv.org/abs/1703.07511) in developing an app that helps users apply the style from a sample image to the image of their house so that they can imagine how their house interior would look like after renovation. The source code is based on a [Tensorflow implementation](https://github.com/LouieYang/deep-photo-styletransfer-tf) of Deep Photo Styletransfer by Yang Liu.
 
 <p align="center">
-    <img src="./some_results/Case6.png" width="612"/>
+    <img src="./examples/readme_examples/Case6.png" width="712"/>
 </p>
 
 ## Disclaimer
