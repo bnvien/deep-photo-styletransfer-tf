@@ -37,6 +37,14 @@ python deep_photostyle.py --content_image_path <path_to_content_image> --style_i
 python deep_photostyle.py --content_image_path ./examples/input/input.jpg --style_image_path ./examples/style/case6.jpg --content_seg_path ./examples/segmentation/input_mask.jpg --style_seg_path ./examples/segmentation/case6_mask.jpg --style_option 0 --max_iter 2000 --apply_smooth False --init_image_path ./examples/input/input.jpg --style_weight 1e3
 ```
 
+There are three use cases for this application: transfering a plain color, a pattern (with edges) and a blend of plain color and small-size pattern. The following images demonstrates the idea.
+
+<p align="center">
+    <img src="./examples/style/case1.jpg" height="190"/>
+    <img src="./examples/style/case2.jpg" height="190"/>
+    <img src="./examples/style/case5.jpg" height="190"/>
+</p>
+
 Because of the spillover effect on the non-working area of the output image, `replace_nonworking_area.py` is used (see the Jupyter Notebook for reference) to replace the non-working area of the output image with the non-working area of the input image.
 
 ### Other Options
