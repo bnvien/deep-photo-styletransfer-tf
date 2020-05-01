@@ -58,6 +58,7 @@ def replaceNonWorkingArea(original_path, mask_path, processed_path, output_name,
     - processed_path: path to the output image (from our model)
     - output_name: desire path and name of the final image to be saved
     
+	Return: final image (np.ndarray)
     """
     original = cv.imread(original_path, cv.IMREAD_UNCHANGED)
     processed = cv.imread(processed_path, cv.IMREAD_UNCHANGED)
@@ -72,3 +73,5 @@ def replaceNonWorkingArea(original_path, mask_path, processed_path, output_name,
     final = np.multiply(processed, mask) + np.multiply(original, inv_mask)
     final = np.clip(final, 0.0, 255.0)
     cv.imwrite(output_name, final.astype(np.uint8))
+	
+    return final.astype(np.uint8)
