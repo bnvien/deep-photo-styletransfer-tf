@@ -47,7 +47,10 @@ Run `python deep_photostyle.py --help` to see a list of all options
 
 ### Image Segmentation
 The idea of image segmentation in this project is a bit different compared to that in the original source code. This app aims to transfer the style of only 1 area in the style image to only 1 area in the input image. These areas are called working areas and marked white in the masks. The rest of the style image and input image is non-working area and marked black in the masks. We aim to keep the style of non-working area in the input image unchanged.
-Masks can be created manually by tools such as Photoshop or [PIXLR](https://pixlr.com/e/). In this project, we also tested the idea of automatic segmentation using a pre-trained model. The source code of that model is provided.
+
+Masks can be created manually by tools such as Photoshop or [PIXLR](https://pixlr.com/e/).
+
+In this project, we also tested the idea of automatic segmentation using a pre-trained model. The source code of that model is provided.
 
 
 ## Examples
