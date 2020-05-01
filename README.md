@@ -75,14 +75,14 @@ Here are more results (from left to right are input, style, and result). Differe
 
 <p align="center">
     <img src='examples/input/input.jpg' height='162' width='300'/>
-    <img src='examples/style/case2.jpg' height='162' width='216'/>
-    <img src='some_results/Case2.png' height='162' width='300'/>
+    <img src='examples/style/case3.jpg' height='162' width='289'/>
+    <img src='some_results/Case3.png' height='162' width='300'/>
 </p>
 
 <p align="center">
     <img src='examples/input/input.jpg' height='162' width='300'/>
-    <img src='examples/style/case3.jpg' height='162' width='289'/>
-    <img src='some_results/Case3.png' height='162' width='300'/>
+    <img src='examples/style/case2.jpg' height='162' width='216'/>
+    <img src='some_results/Case2.png' height='162' width='300'/>
 </p>
 
 <p align="center">
