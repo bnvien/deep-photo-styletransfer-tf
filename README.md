@@ -37,7 +37,7 @@ python deep_photostyle.py --content_image_path <path_to_content_image> --style_i
 python deep_photostyle.py --content_image_path ./examples/input/input.jpg --style_image_path ./examples/style/case6.jpg --content_seg_path ./examples/segmentation/input_mask.jpg --style_seg_path ./examples/segmentation/case6_mask.jpg --style_option 0 --max_iter 2000 --apply_smooth False --init_image_path ./examples/input/input.jpg --style_weight 1e3
 ```
 
-Because of the spillover effect on the non-working area of the output image, `replace_nonworking_area.py` is used to replace the non-working area of the output image with the non-working area of the input image.
+Because of the spillover effect on the non-working area of the output image, `replace_nonworking_area.py` is used (see the Jupyter Notebook for reference) to replace the non-working area of the output image with the non-working area of the input image.
 
 ### Other Options
 
@@ -45,6 +45,9 @@ Because of the spillover effect on the non-working area of the output image, `re
 
 `--content_weight` specifies the weight of the content loss (default=5), `--style_weight` specifies the weight of the style loss (default=100), `--tv_weight` specifies the weight of variational loss (default=1e-3) and `--affine_weight` specifies the weight of affine loss (default=1e4). You can change the values of these weight and play with them to create different photos.
 
+`--max_iter` specifies the maximum number of iterations to run in the training process (default=1000).
+
+`--apply_smooth` specifies whether to apply local affine smoothing to the final result (default=True).
 
 Run `python deep_photostyle.py --help` to see a list of all options
 
@@ -57,7 +60,12 @@ In this project, we also tested the idea of automatic segmentation using a pre-t
 
 
 ## Examples
-Here are more results (from left to right are input, style, and result)
+Here are more results (from left to right are input, style, and result). Different cases were tried in the following order:
+* Transfering plain color
+* Transfering color with small-size patterns
+* Transfering color with bigger-size patterns
+* Transfering color with even-bigger-size patterns
+* Transfering a mixture of everything
 
 <p align="center">
     <img src='examples/input/input.jpg' height='162' width='300'/>
