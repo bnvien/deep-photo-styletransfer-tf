@@ -2,6 +2,8 @@
 
 This project aims to apply [Deep Photo Styletransfer](https://arxiv.org/abs/1703.07511) in developing an app that helps users apply the style from a sample image to the image of their house so that they can imagine how their house interior would look like after renovation. The source code is based on a [Tensorflow implementation](https://github.com/LouieYang/deep-photo-styletransfer-tf) of Deep Photo Styletransfer by Yang Liu.
 
+The app will apply the style of the working area (marked by mask, read **Image Segmentation** for more info) in the style image to the working area in the input image.
+
 <p align="center">
     <img src="./examples/readme_examples/Case6.png" width="712"/>
 </p>
@@ -35,20 +37,21 @@ python deep_photostyle.py --content_image_path <path_to_content_image> --style_i
 python deep_photostyle.py --content_image_path ./examples/input/input.jpg --style_image_path ./examples/style/case6.jpg --content_seg_path ./examples/segmentation/input_mask.jpg --style_seg_path ./examples/segmentation/case6_mask.jpg --style_option 0 --max_iter 2000 --apply_smooth False --init_image_path ./examples/input/input.jpg --style_weight 1e3
 ```
 
+Because of the spillover effect on the non-working area of the output image, `replace_nonworking_area.py` is used to replace the non-working area of the output image with the non-working area of the input image.
+
 ### Other Options
 
-`--style_option` specifies three different ways of style transferring. `--style_option 0` is to generate segmented intermediate result like torch file **neuralstyle_seg.lua** in torch. `--style_option 1` uses this intermediate result to generate final result like torch file **deepmatting_seg.lua**. `--style_option 2` combines these two steps as a one line command to generate the final result directly.
+`--style_option` specifies three different ways of style transferring. `--style_option 0` is to generate image without the photorealism regularization loss term (affine loss). `--style_option 1` generates image with the affine loss on. `--style_option 2` combines these two steps as a one line command to generate the final result directly. Note that the result of step 1 will be used as the initial image for step 2.
 
 `--content_weight` specifies the weight of the content loss (default=5), `--style_weight` specifies the weight of the style loss (default=100), `--tv_weight` specifies the weight of variational loss (default=1e-3) and `--affine_weight` specifies the weight of affine loss (default=1e4). You can change the values of these weight and play with them to create different photos.
 
-`--serial` specifies the folder that you want to store the temporary result **out_iter_XXX.png**. The default value of it is `./`. You can simply `mkdir result` and set `--serial ./result` to store them. **Again, the temporary results are simply clipping the image into [0, 255] without smoothing. Since for now, the smoothing operations need pycuda and pycuda will have conflict with tensorflow when using single GPU**
 
 Run `python deep_photostyle.py --help` to see a list of all options
 
 ### Image Segmentation
 The idea of image segmentation in this project is a bit different compared to that in the original source code. This app aims to transfer the style of only 1 area in the style image to only 1 area in the input image. These areas are called working areas and marked white in the masks. The rest of the style image and input image is non-working area and marked black in the masks. We aim to keep the style of non-working area in the input image unchanged.
 
-Masks can be created manually by tools such as Photoshop or [PIXLR](https://pixlr.com/e/).
+Masks can be created manually using tools such as Photoshop or [PIXLR](https://pixlr.com/e/).
 
 In this project, we also tested the idea of automatic segmentation using a pre-trained model. The source code of that model is provided.
 
