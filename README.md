@@ -1,16 +1,10 @@
-# deep-photo-styletransfer-tf
+# An application of Deep Photo Style Transfer in Interior Design
 
-This is a pure Tensorflow implementation of [Deep Photo Styletransfer](https://arxiv.org/abs/1703.07511), the torch implementation could be found [here](https://github.com/luanfujun/deep-photo-styletransfer)
-
-This implementation support [L-BFGS-B](https://www.tensorflow.org/api_docs/python/tf/contrib/opt/ScipyOptimizerInterface) (which is what the original authors used) and [Adam](https://www.tensorflow.org/api_docs/python/tf/train/AdamOptimizer) in case the ScipyOptimizerInterface incompatible when Tensorflow upgrades to higher version.
-
-This implementation may seem to be a little bit simpler thanks to Tensorflow's [automatic differentiation](https://en.wikipedia.org/wiki/Automatic_differentiation)
-
-Additionally, there is no dependency on MATLAB thanks to another [repository](https://github.com/martinbenson/deep-photo-styletransfer/blob/master/deep_photo.py) computing Matting Laplacian Sparse Matrix. Below is example of transferring the photo style to another photograph.
+This project aims to apply [Deep Photo Styletransfer](https://arxiv.org/abs/1703.07511) in developing an app that helps users apply the style from a sample image to the image of their house so that they can imagine how their house interior would look like after renovation. The source code is based on a [Tensorflow implementation](https://github.com/LouieYang/deep-photo-styletransfer-tf) of Deep Photo Styletransfer by Yang Liu.
 
 <p align="center">
-    <img src="./some_results/best5.png" width="512"/>
-    <img src="./examples/readme_examples/intar5.png" width="290"/>
+    <img src="./some_results/Case6.png" width="512"/>
+    <img src="./examples/readme_examples/readme_sample.jpg" width="290"/>
 </p>
 
 ## Disclaimer
