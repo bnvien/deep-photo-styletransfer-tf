@@ -59,38 +59,33 @@ Here are more results (from left to right are input, style, and result)
 </p>
 
 <p align="center">
-    <img src='examples/input/in7.png' height='140' width='210'/>
-    <img src='examples/style/tar7.png' height='140' width='210'/>
-    <img src='examples/final_results/best7_t_1000.png' height='140' width='210'/>
-    <img src='some_results/best7.png' height='140' width='210'/>
+    <img src='examples/input/input.jpg' height='162' width='300'/>
+    <img src='examples/style/case2.jpg' height='162' width='216'/>
+    <img src='some_results/Case2.png' height='162' width='300'/>
 </p>
 
 <p align="center">
-    <img src='examples/input/in8.png' height='140' width='210'/>
-    <img src='examples/style/tar8.png' height='140' width='210'/>
-    <img src='examples/final_results/best8_t_1000.png' height='140' width='210'/>
-    <img src='some_results/best8.png' height='140' width='210'/>
+    <img src='examples/input/input.jpg' height='162' width='300'/>
+    <img src='examples/style/case3.jpg' height='162' width='289'/>
+    <img src='some_results/Case3.png' height='162' width='300'/>
 </p>
 
 <p align="center">
-    <img src='examples/input/in9.png' height='140' width='210'/>
-    <img src='examples/style/tar9.png' height='140' width='210'/>
-    <img src='examples/final_results/best9_t_1000.png' height='140' width='210'/>
-    <img src='some_results/best9.png' height='140' width='210'/>
+    <img src='examples/input/input.jpg' height='162' width='300'/>
+    <img src='examples/style/case4.jpg' height='162' width='230'/>
+    <img src='some_results/Case4.png' height='162' width='300'/>
 </p>
 
 <p align="center">
-    <img src='examples/input/in10.png' height='140' width='210'/>
-    <img src='examples/style/tar10.png' height='140' width='210'/>
-    <img src='examples/final_results/best10_t_1000.png' height='140' width='210'/>
-    <img src='some_results/best10.png' height='140' width='210'/>
+    <img src='examples/input/input.jpg' height='162' width='300'/>
+    <img src='examples/style/case5.jpg' height='162' width='244'/>
+    <img src='some_results/Case5.png' height='162' width='300'/>
 </p>
 
 <p align="center">
-    <img src='examples/input/in11.png' width='210'/>
-    <img src='examples/style/tar11.png' width='210'/>
-    <img src='examples/final_results/best11_t_1000.png' width='210'/>
-    <img src='some_results/best11.png' width='210'/>
+    <img src='examples/input/input.jpg' height='162' width='300'/>
+    <img src='examples/style/case6.jpg' height='162' width='162'/>
+    <img src='some_results/Case6.png' height='162' width='300'/>
 </p>
 
 ## Acknowledgement
