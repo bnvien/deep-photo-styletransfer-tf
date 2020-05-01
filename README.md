@@ -46,7 +46,8 @@ python deep_photostyle.py --content_image_path ./examples/input/input.jpg --styl
 Run `python deep_photostyle.py --help` to see a list of all options
 
 ### Image Segmentation
-This repository doesn't offer image segmentation script and simply use the segmentation image from the [torch version](https://github.com/luanfujun/deep-photo-styletransfer). The mask colors used are also the same as them. You could specify your own segmentation model and mask color to customize your own style transfer.
+The idea of image segmentation in this project is a bit different compared to that in the original source code. This app aims to transfer the style of only 1 area in the style image to only 1 area in the input image. These areas are called working areas and marked white in the masks. The rest of the style image and input image is non-working area and marked black in the masks. We aim to keep the style of non-working area in the input image unchanged.
+Masks can be created manually by tools such as Photoshop or [PIXLR](https://pixlr.com/e/). In this project, we also tested the idea of automatic segmentation using a pre-trained model. The source code of that model is provided.
 
 
 ## Examples
@@ -90,7 +91,7 @@ Here are more results (from left to right are input, style, and result)
 
 ## Acknowledgement
 
-* This work was done by Vien Bui, Jacob John Jeevan and Viren Viraj Shankar at *University of Alabama at Birmingam*.
+* This work was done by Vien Bui, Jacob John Jeevan and Viren Viraj Shankar at *the University of Alabama at Birmingam*.
 
 * This repository is basically based on the [Tensorflow implementation](https://github.com/LouieYang/deep-photo-styletransfer-tf) of Deep Photo Styletransfer by Yang Liu.
 
