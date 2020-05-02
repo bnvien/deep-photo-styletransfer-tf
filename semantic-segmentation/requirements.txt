@@ -1,7 +1,7 @@
 numpy
 scipy
+yacs
 pytorch
 torchvision
 opencv-python
-yacs
 tqdm
