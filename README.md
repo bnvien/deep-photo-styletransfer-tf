@@ -19,7 +19,7 @@ The app will apply the style of the working area (marked by mask, read **Image S
 * [Scipy](https://www.scipy.org/)
 * [PyCUDA](https://pypi.python.org/pypi/pycuda) (used in smooth local affine)
 
-***It is recommended to run the code on Google Colab, since you only need to install PyCUDA manually to setup. Check the provided Jupyter Notebook for a demo.***
+***It is recommended to run the code on Google Colab, since you only need to install PyCUDA manually to setup. Check the provided Jupyter Notebook `Deep_photo_interior_design.ipynb` for a demo.***
 
 ### Download the VGG-19 model weights
 The VGG-19 model of tensorflow is adopted from [VGG Tensorflow](https://github.com/machrisaa/tensorflow-vgg) with few modifications on the class interface. The VGG-19 model weights is stored as .npy file and could be download from [Google Drive](https://drive.google.com/file/d/0BxvKyd83BJjYY01PYi1XQjB5R0E/view?usp=sharing) or [BaiduYun Pan](https://pan.baidu.com/s/1o9weflK). After downloading, copy the weight file to the **./vgg19** directory
@@ -77,7 +77,7 @@ The idea of image segmentation in this project is a bit different compared to th
 
 Masks can be created manually using tools such as Photoshop or [PIXLR](https://pixlr.com/e/).
 
-In this project, we also tested the idea of automatic segmentation using a pre-trained model. The source code of that model is provided.
+In this project, we also tested the idea of automatic segmentation using a pre-trained model. The source code of that model is provided in folder `semantic-segmentation`. The resulting masks from this model are far from the manually generated masks. Therefore, we did not go further in this direction but used the manual masks.
 
 
 ## Examples
@@ -129,6 +129,8 @@ Here are more results (from left to right are input, style, and result). Differe
 * This work was done by Vien Bui, Jacob John Jeevan and Viren Viraj Shankar at *the University of Alabama at Birmingam*.
 
 * This repository is basically based on the [Tensorflow implementation](https://github.com/LouieYang/deep-photo-styletransfer-tf) of Deep Photo Styletransfer by Yang Liu.
+
+* The automatic segmentation code is originated from [here](https://github.com/CSAILVision/semantic-segmentation-pytorch)
 
 ## Contact
 Feel free to contact me if there is any question (Vien Bui bnvien@gmail.com).
