@@ -1,0 +1,6 @@
+*.pyc
+ade20k-resnet50dilated-ppm_deepsup/
+ckpt/
+vis/
+log/
+pretrained/
