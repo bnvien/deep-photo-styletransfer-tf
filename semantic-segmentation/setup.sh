@@ -19,5 +19,4 @@ if [ ! -e $DECODER ]; then
   wget -P $MODEL_PATH http://sceneparsing.csail.mit.edu/model/pytorch/$DECODER
 fi
 
-pip install -r requirements.txt --user
-
+pip install -r requirements.txt
