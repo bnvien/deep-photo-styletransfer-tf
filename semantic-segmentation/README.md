@@ -5,8 +5,7 @@ This pretrained model was used to automatically generate segmentation masks for 
 
 ### Setup
 
-```Run setup.sh to install the dependencies
-```
+> Run setup.sh to install the dependencies
 
 ### Generate masks based on pretrained model
 (ResNet50dilated + PPM_deepsup)
